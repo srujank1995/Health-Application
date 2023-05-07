@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useReducer, useState } from "react";
+import "./App.css";
+import Reducerfunction, { initialstate } from "./Attributes";
+import TableData from "./Components/Table-Data";
+import FormData from "./Components/Form-Data";
 
-function App() {
+const App = () => {
+  const [state, dispatch] = useReducer(Reducerfunction, initialstate);
+  const [inputData, setInputData] = useState<number>(0);
+  
+  const Updateform = (input: any) => {
+    console.log("output", inputData);
+    
+    dispatch({
+      payload: { value: inputData },
+      type: input,
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Health Application</h1>
+
+      <TableData state={state} />
+      <br></br>
+      <br></br>
+
+      <FormData
+        state={state}
+        inputData={inputData}
+        setInputData={setInputData}
+        Updateform={Updateform}
+      />
     </div>
   );
-}
+};
 
 export default App;
