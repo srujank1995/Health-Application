@@ -8,6 +8,7 @@ import ContextMain from "./Components/Context-main";
 const App = () => {
   const [state, dispatch] = useReducer(Reducerfunction, initialstate);
   const [inputData, setInputData] = useState<number>(0);
+  
   const setInputValWrapper = (value:number) =>{
     setInputData(value)
   }
