@@ -23,7 +23,7 @@ const FormData: React.FC<{
   return (
     <div>
       <form>
-        <select  ref={ModalRef}>
+        <select ref={ModalRef}>
           <option value={Update_BP}>{state.BP.name}</option>
           <option value={Update_HR}>{state.HR.name}</option>
           <option value={Update_SBP}>{state.SBP.name}</option>
@@ -42,7 +42,9 @@ const FormData: React.FC<{
               type="number"
               value={inputData}
               onChange={(e) => {
-                setInputData(parseInt(e.target.value))}}/>
+                setInputData(parseInt(e.target.value));
+              }}
+            />
           </td>
           <td>
             <button
