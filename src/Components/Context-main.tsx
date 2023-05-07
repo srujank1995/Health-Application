@@ -1,5 +1,8 @@
 import { createContext } from "react";
 
-const ContextMain = createContext(0);
+const ContextMain = createContext({
+    inputVal : 0,
+    setInputVal: (value:number) =>{}
+});
 
 export default ContextMain;

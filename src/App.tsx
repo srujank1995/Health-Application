@@ -8,7 +8,9 @@ import ContextMain from "./Components/Context-main";
 const App = () => {
   const [state, dispatch] = useReducer(Reducerfunction, initialstate);
   const [inputData, setInputData] = useState<number>(0);
-
+  const setInputValWrapper = (value:number) =>{
+    setInputData(value)
+  }
   const Updateform = (input: any) => {
     console.log("output", inputData);
 
@@ -19,7 +21,13 @@ const App = () => {
   };
 
   return (
-    <ContextMain.Provider value={0}>
+    <ContextMain.Provider value={
+    {
+      inputVal:inputData,
+      setInputVal: setInputValWrapper
+    }
+
+    }>
       <div className="App">
         <h1>Health Application</h1>
 
@@ -29,8 +37,6 @@ const App = () => {
 
         <FormData
           state={state}
-          inputData={inputData}
-          setInputData={setInputData}
           Updateform={Updateform}
         />
       </div>

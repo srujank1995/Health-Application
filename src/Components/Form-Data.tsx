@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import {
   StateType,
   Update_BP,
@@ -9,16 +9,22 @@ import {
   Update_SL,
   Update_SR,
 } from "../Attributes/MainType";
+import ContextMain from "./Context-main";
+
 
 const FormData: React.FC<{
   state: StateType;
-  inputData: number;
-  setInputData: any;
   Updateform: (input: any) => void;
 }> = (props) => {
+
   const ModalRef: any = useRef();
-  console.log("ModalRef", ModalRef.current.value);
-  const { state, inputData, setInputData, Updateform } = props;
+  const { state, Updateform } = props;
+
+  const ContextValue = useContext (ContextMain)
+  const {inputVal, setInputVal} = ContextValue
+
+  console.log("ModalRef", ModalRef);
+  console.log("ContextValue", ContextValue);
 
   return (
     <div>
@@ -40,9 +46,9 @@ const FormData: React.FC<{
           <td>
             <input
               type="number"
-              value={inputData}
+              value={inputVal}
               onChange={(e) => {
-                setInputData(parseInt(e.target.value));
+                setInputVal(parseInt(e.target.value));
               }}
             />
           </td>
