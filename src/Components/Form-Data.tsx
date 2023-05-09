@@ -9,7 +9,7 @@ import {
   Update_SL,
   Update_SR,
 } from "../Attributes/MainType";
-import ContextMain from "./Context-main";
+import ContextMain from "../Context/Context-main";
 
 
 const FormData: React.FC<{
