@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import ContextMain from "../Context/Context-main";
+import styless from "./Table-data.module.scss"
 
 const TableData = () => {
   const ContextTableData = useContext(ContextMain);
   const { ContextState } = ContextTableData;
   return (
-    <div>
+    <div className={styless["Table-container"]}>
       <table>
         <tr>
           <td>Health Attribute</td>
