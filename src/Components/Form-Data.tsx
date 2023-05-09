@@ -11,17 +11,11 @@ import {
 } from "../Attributes/MainType";
 import ContextMain from "../Context/Context-main";
 
-
-const FormData: React.FC<{
-  state: StateType;
-  Updateform: (input: any) => void;
-}> = (props) => {
-
+const FormData = () => {
   const ModalRef: any = useRef();
-  const { state, Updateform } = props;
 
-  const ContextValue = useContext (ContextMain)
-  const {inputVal, setInputVal} = ContextValue
+  const ContextValue = useContext(ContextMain);
+  const { inputVal, setInputVal, ContextState, Updateform } = ContextValue;
 
   console.log("ModalRef", ModalRef);
   console.log("ContextValue", ContextValue);
@@ -30,13 +24,13 @@ const FormData: React.FC<{
     <div>
       <form>
         <select ref={ModalRef}>
-          <option value={Update_BP}>{state.BP.name}</option>
-          <option value={Update_HR}>{state.HR.name}</option>
-          <option value={Update_SBP}>{state.SBP.name}</option>
-          <option value={Update_DBP}>{state.DBP.name}</option>
-          <option value={Update_BTemp}>{state.BTemp.name}</option>
-          <option value={Update_SL}>{state.SL.name}</option>
-          <option value={Update_SR}>{state.SR.name}</option>
+          <option value={Update_BP}>{ContextState.BP.name}</option>
+          <option value={Update_HR}>{ContextState.HR.name}</option>
+          <option value={Update_SBP}>{ContextState.SBP.name}</option>
+          <option value={Update_DBP}>{ContextState.DBP.name}</option>
+          <option value={Update_BTemp}>{ContextState.BTemp.name}</option>
+          <option value={Update_SL}>{ContextState.SL.name}</option>
+          <option value={Update_SR}>{ContextState.SR.name}</option>
         </select>
       </form>
       <br></br>
